@@ -1,13 +1,14 @@
-import './App.css'
-import Weather from './components/Weather'
-//import MyWeatherComponent from './components/Weatherr'
+import './App.css';
+import Weather from './components/Weather';
+import React, {lazy, Suspense} from 'react';
+
+const FetchWeather = lazy(() => import("./components/Weather"));
 
 function App() {
   return (
-    <>
-    <Weather/>
-    {/* <MyWeatherComponent/> */}
-    </>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Weather/>
+    </Suspense>
   )
 }
 
