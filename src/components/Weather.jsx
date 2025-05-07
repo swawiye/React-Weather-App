@@ -45,7 +45,7 @@ function Weather() {
             />
             <button type="submit" onClick={handleSubmit} className="bg-blue-300 ml-4 p-2 rounded-md hover:bg-blue-500">Search</button>
             {weather && (
-                <div className="mt-6">
+                <div className="mt-6 bg-blue-300 py-6 rounded-lg">
                     <h3><span className="font-semibold">City:</span> {weather.name}</h3>
                     <h3><span className="font-semibold">Weather:</span> {weather.weather[0].description}</h3>
                     <h3><span className="font-semibold">Temperature:</span> {weather.main.temp}°C</h3>
