@@ -7,7 +7,9 @@ function Weather() {
 
     const fetchWeather = async () => {
         try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=b5b182318e887828004e47a5362ecc52`);
+            const apiUrl = import.meta.env.VITE_API_URL;
+            const apiKey = import.meta.env.VITE_API_KEY;
+            const response = await axios.get(`${apiUrl}?q=${city}&appid=${apiKey}&unit=metrics`);
             const data = response.data;
             setWeather(data);
         } catch (error) {
@@ -52,6 +54,7 @@ function Weather() {
                     <h3><span className="font-semibold">Humidity:</span> {weather.main.humidity}%</h3>
                     <h3><span className="font-semibold">Pressure:</span> {weather.main.pressure}mb</h3>
                     <p><span className="font-semibold">Feels Like:</span> {weather.main.feels_like}°C</p>
+                    <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="weather icon"/>
                 </div>
             )}
         </div>
